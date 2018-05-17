@@ -20,6 +20,11 @@ DONE  Compiled successfully in xx ms
 
 ```
 
+## Live demo
+
+[http://trello-vue-report.s3-website-eu-west-1.amazonaws.com/index.html](http://trello-vue-report.s3-website-eu-west-1.amazonaws.com/index.html)
+
+
 
 ## Todos
 
