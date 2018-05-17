@@ -2,15 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-/*
-const state = {
-    loggedIn: 0
-  }
-
-  export default new Vuex.Store({
-    state
-  })
-*/
 
 export default new Vuex.Store({
     state: {
@@ -105,7 +96,6 @@ export default new Vuex.Store({
         loadMemberData ({ commit, dispatch }) {
           window.Trello.get('/members/me',
             // handle success  
-            //(member) => commit('setMemberData', member),
             function (member) { 
               console.log('Success callback!!!');
               commit('setMemberData', member) 
@@ -113,9 +103,6 @@ export default new Vuex.Store({
               member.idBoards.forEach( function(boardId) {
                 dispatch('loadBoardData', boardId) 
               });
-
-              
-
             }, 
             
             // handle failure

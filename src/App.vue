@@ -5,10 +5,7 @@
     <Login />
     <hr>
     <Boards />
-
-    <!-- <button v-on:click="fallo">Fallo</button> -->
-    
-  
+ 
   </div>
 </template>
 
@@ -24,18 +21,8 @@ export default {
     Login,
     Boards
   }, 
-
-  /*methods: {
-    fallo: function() {
-     // console.log(this.$store.state.count);
-      this.$store.commit('changeLoginStatus', 10)
-
-    },
-  }*/
-  
   
 }
-
 
 </script>
 
