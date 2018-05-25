@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h1 v-if="$store.state.loggedIn">Trello boards for:  {{ $store.state.member.fullName }}  </h1>    
+  <div class="loginHeader">
+    <hr>
+    <p v-if="$store.state.loggedIn">Logged in as: <b>{{ $store.state.member.fullName }}</b></p>
     <button v-else v-on:click="loginTrello">Login to Trello</button>
   </div>
 </template>

@@ -2,13 +2,16 @@
   <div>
     
      <div v-if="$store.state.loggedIn">
-        <p>Boards:  </p>  
-        <select v-model="selected" v-on:change="loadLists(selected.value)">
-        
-        <option v-for="option in $store.state.boards" :value="option" :key="option.id">
-            {{ option.text }}
-        </option>
-        </select>
+        <div class="board-selector">
+            <p>
+                Selected board:  
+                <select v-model="selected" v-on:change="loadLists(selected.value)">
+                <option v-for="option in $store.state.boards" :value="option" :key="option.id">
+                    {{ option.text }}
+                </option>
+                </select>
+            </p>  
+        </div>
         <hr>
        
         <div class="board">

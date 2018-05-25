@@ -1,14 +1,22 @@
 <template>
   <div id="app">
-    <div>
-        <img src="./assets/logo.png">
-        <h1>Trello reporting tool v0.0.3</h1>
-        <p>VueJS Version</p>
+    <div class="header">
+        <div class="header">
+            <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.3</h1>
+            <p>VueJS Version - Simone Zabberoni </p>
+        </div>
+
+      
     </div>
-    <Login />
-    <hr>
-    <Boards />
- 
+    
+    <div>
+        <div>
+            <Login />        
+        </div>
+        
+        <Boards />
+    </div>
+
   </div>
 </template>
 
@@ -40,7 +48,29 @@ export default {
   margin-top: 60px;
 }
 
+p {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
+div  {
+    clear: both; 
+    float: none;
+}
+
+h1 {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
 h2 {
+    text-align: left;
     text-decoration: underline;
     font-style: italic;
 
@@ -62,6 +92,8 @@ h3 {
 .board {
    /* border-color: red; 
     border-style: solid;  */
+    clear: both; 
+    float: none;
     
 }
 
@@ -78,7 +110,7 @@ h3 {
     padding: 2px;
 }
 
-.card-headder {
+.card-header {
     float: left;
 }
 
@@ -89,6 +121,8 @@ h3 {
 
 .card-labels {
     float: left;
+    clear: none;
+
 }
 
 .card-label-object {
@@ -104,6 +138,7 @@ h3 {
     margin: 2px; 
     border-radius: 5px;
     float: left;
+    clear: none;
 }
 
 .card-body {
@@ -118,5 +153,30 @@ h3 {
     margin: 2px; 
 }
 
+.header {
+    float: left;
+    clear: none;
+}
+
+.loginHeader {
+    padding-top: 10px;
+    text-align: left;
+}
+
+.loginHeader p {
+    font-style: italic;
+    font-size: small;
+}
+
+.board-selector {
+    padding-top: 10px;
+    text-align: left;
+}
+
+
+.board-selector p {
+    font-style: italic;
+    font-size: small;
+}
 
 </style>
