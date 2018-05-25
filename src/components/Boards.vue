@@ -13,9 +13,16 @@
        
         <div v-for="list in $store.state.lists" :key="list.name">
             <h3>{{ list.name }}</h3>
-            <div v-for="card in list['cards']" :key="card.name">
-                <h4>{{ card.name  }} </h4>
-                <pre>{{  card.desc  }}</pre>
+            <div v-for="card in list['cards']" :key="card.name" > 
+                <div>
+                    <div v-bind:style="{ 'float': 'left' }" ><h4>{{ card.name  }} </h4></div>
+                    <div v-for="label in card['labels']" :key="label.name" >
+                        
+                        <div v-bind:style="{ 'background-color': $store.state.labelColor[label.color], 'color': 'white', 'padding': '4px', 
+                            'margin': '2px', 'border-radius': '5px', 'float': 'left' } " >{{ label.name  }} </div>
+                    </div>
+                </div>
+                <div v-bind:style="{ 'text-align': 'left' }"> <pre>{{  card.desc  }}</pre> </div>
             </div>
      
             <hr>

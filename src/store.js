@@ -10,7 +10,21 @@ export default new Vuex.Store({
         member: {},
         boards: [],
         lists: [],
-        listIndex: []
+        listIndex: [],
+        labelColor: { 
+            'yellow': '#f2d600', 
+            'purple':'#c377e0', 
+            'blue': '#0079bf', 
+            'red': '#eb5a46', 
+            'green': '#61bd4f', 
+            'orange': '#ffab4a', 
+            'black': '#4d4d4d', 
+            'sky': '#00c2e0', 
+            'pink': '#ff80ce', 
+            'lime': '#51e898' 
+        }
+
+
       },
       
       mutations: {
