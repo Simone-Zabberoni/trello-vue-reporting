@@ -13,8 +13,9 @@
         <div>
             <Login />        
         </div>
-        
+        <button v-on:click="createPDF">Export to PDF</button>  
         <Boards />
+      
     </div>
 
   </div>
@@ -24,6 +25,9 @@
 
 import Login from './components/Login.vue'
 import Boards from './components/Boards.vue'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas';
+
 
 export default {
   name: 'app',
@@ -32,6 +36,57 @@ export default {
     Boards
   }, 
   
+  methods: {
+    createPDF () {
+
+//window.html2canvas = html2canvas;
+
+/*  // funziona single page
+html2canvas(document.body).then(function(canvas) {
+    var imgData = canvas.toDataURL(
+                    'image/png');              
+                var doc = new jsPDF('p', 'mm');
+                doc.addImage(imgData, 'PNG', 10, 10);
+                doc.save('sample-file.pdf');
+});
+*/
+
+// provamo
+var somename = this.$store.state.member.fullName;
+
+html2canvas(document.getElementById("boardContainer"))
+.then(function(canvas) {
+    var imgWidth = 210; 
+    var pageHeight = 295;  
+    var imgHeight = canvas.height * imgWidth / canvas.width;
+    var heightLeft = imgHeight;
+    var doc = new jsPDF('p', 'mm');
+    var position = 0;
+
+    var imgData = canvas.toDataURL('image/png');
+
+    doc.text(somename);
+    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        doc.addPage();
+        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+    }
+    doc.save( 'file.pdf');
+
+
+});
+
+
+
+
+    } //createPDF
+}
+
+
 }
 
 </script>

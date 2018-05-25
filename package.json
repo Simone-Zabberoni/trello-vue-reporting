@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.4.0",
     "vue": "^2.5.16",
     "vue-markdown": "^2.2.4",
     "vuex": "^3.0.1"

@@ -14,7 +14,7 @@
         </div>
         <hr>
        
-        <div class="board">
+        <div id="boardContainer" class="board">
           <div v-for="list in $store.state.lists" :key="list.name" class="list">
             <h2>{{ list.name }}</h2>
            
