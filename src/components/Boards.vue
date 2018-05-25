@@ -11,21 +11,25 @@
         </select>
         <hr>
        
-        <div v-bind:style="{ 'border-color': 'red', 'border-style':'solid' }">
-          <div v-for="list in $store.state.lists" :key="list.name"  v-bind:style="{ 'border-color': 'blue', 'border-style':'solid' }">
-            <h3>{{ list.name }}</h3>
-            <div v-for="card in list['cards']" :key="card.name" v-bind:style="{ 'border-color': 'purple', 'border-style':'solid' }"> 
-                <div v-bind:style="{ 'float': 'left', 'border-style':'solid' }">
-                    <div v-bind:style="{ 'float': 'left' }"><h4>{{ card.name  }}</h4></div>
-                    <div v-bind:style="{ 'float': 'left' }" v-for="label in card['labels']" :key="label.name" >
-                        
-                        <div v-bind:style="{ 'background-color': $store.state.labelColor[label.color], 'color': 'white', 'padding': '4px', 
-                            'margin': '2px', 'border-radius': '5px','float': 'left' } " >{{ label.name  }} </div>
+        <div class="board">
+          <div v-for="list in $store.state.lists" :key="list.name" class="list">
+            <h2>{{ list.name }}</h2>
+           
+            <div v-for="card in list['cards']" :key="card.name" class="card"> 
+                <div class="card-header">
+                    <div class="card-name card-header">
+                        <h3>{{ card.name }}</h3>
+                    </div>
+                    
+                    <div v-for="label in card['labels']" :key="label.name" class="card-labels card-header">
+                        <div v-bind:style="{ 'background-color': $store.state.labelColor[label.color] } " class="card-label-object" >
+                            {{ label.name  }}
+                        </div>
                     </div>
                 </div>
-                <div v-bind:style="{ 'text-align': 'left', 'clear':'both','float':'none' }"> 
+
+                <div class="card-body"> 
                     <vue-markdown>{{  card.desc  }}</vue-markdown>
-                    <!-- <pre>{{  card.desc  }}</pre>  -->
                 </div>
             </div>
      
