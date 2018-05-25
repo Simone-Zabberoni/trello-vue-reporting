@@ -1,23 +1,33 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <Header msg="Trello reporting tool v0.2"/>
-    <Login />
-    <hr>
-    <Boards />
- 
+    <div class="header">
+        <div class="header">
+            <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.3</h1>
+            <p>VueJS Version - Simone Zabberoni </p>
+        </div>
+
+      
+    </div>
+    
+    <div>
+        <div>
+            <Login />        
+        </div>
+        
+        <Boards />
+    </div>
+
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
+
 import Login from './components/Login.vue'
 import Boards from './components/Boards.vue'
 
 export default {
   name: 'app',
   components: {
-    Header,
     Login,
     Boards
   }, 
@@ -30,11 +40,143 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+
+p {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
+div  {
+    clear: both; 
+    float: none;
+}
+
+h1 {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
+h2 {
+    text-align: left;
+    text-decoration: underline;
+    font-style: italic;
+
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
+h3 {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
+.board {
+   /* border-color: red; 
+    border-style: solid;  */
+    clear: both; 
+    float: none;
+    
+}
+
+.list {
+    /*border-color: green; 
+    border-style: solid;*/
+}
+
+.card {
+    /*border-color: purple; 
+    border-style: solid; */
+    background-color: WhiteSmoke;
+    margin: 5px;
+    padding: 2px;
+}
+
+.card-header {
+    float: left;
+}
+
+.card-name {
+    float: left;
+    text-align: left; 
+}
+
+.card-labels {
+    float: left;
+    clear: none;
+
+}
+
+.card-label-object {
+    color: white;
+    font-variant: small-caps;
+    font-style: italic;
+    font-size: small;
+
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+    border-radius: 5px;
+    float: left;
+    clear: none;
+}
+
+.card-body {
+    text-align: left; 
+    clear: both; 
+    float: none;
+    
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+}
+
+.header {
+    float: left;
+    clear: none;
+}
+
+.loginHeader {
+    padding-top: 10px;
+    text-align: left;
+}
+
+.loginHeader p {
+    font-style: italic;
+    font-size: small;
+}
+
+.board-selector {
+    padding-top: 10px;
+    text-align: left;
+}
+
+
+.board-selector p {
+    font-style: italic;
+    font-size: small;
+}
+
 </style>
