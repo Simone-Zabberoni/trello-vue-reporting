@@ -23,7 +23,10 @@
                             'margin': '2px', 'border-radius': '5px','float': 'left' } " >{{ label.name  }} </div>
                     </div>
                 </div>
-                <div v-bind:style="{ 'text-align': 'left', 'clear':'both','float':'none' }"> <pre>{{  card.desc  }}</pre> </div>
+                <div v-bind:style="{ 'text-align': 'left', 'clear':'both','float':'none' }"> 
+                    <vue-markdown>{{  card.desc  }}</vue-markdown>
+                    <!-- <pre>{{  card.desc  }}</pre>  -->
+                </div>
             </div>
      
             <hr>
@@ -36,8 +39,15 @@
 </template>
 
 <script>
+
+import VueMarkdown from 'vue-markdown'
+
 export default {
   name: 'Boards',
+
+  components: {
+    VueMarkdown
+  },
 
   data: function () {
     return {
