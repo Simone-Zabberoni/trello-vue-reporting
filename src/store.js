@@ -85,7 +85,18 @@ export default new Vuex.Store({
               console.log('Inside locaListCards...');
                             
               cards.forEach( function(card) {
-                commit('addCardToList', card);
+
+                // Get all comments foreach card
+                window.Trello.get('/cards/' + card.id  + '/actions?filter=commentCard', 
+                  function(comments) { 
+                    console.log(comments);
+                    card.comments = [];
+                    card.comments = comments;
+                    // push the full card to the state
+                    commit('addCardToList', card);
+                });  
+
+                
               });
             });
 

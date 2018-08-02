@@ -2,7 +2,7 @@
   <div id="app">
     <div class="header">
         <div class="header">
-            <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.3</h1>
+            <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.4</h1>
             <p>VueJS Version - Simone Zabberoni </p>
         </div>
 
@@ -26,6 +26,7 @@
 import Login from './components/Login.vue'
 import Boards from './components/Boards.vue'
 import jsPDF from 'jspdf'
+
 import html2canvas from 'html2canvas';
 
 
@@ -206,6 +207,25 @@ h3 {
     padding-top: 2px;
     padding-bottom: 2px;
     margin: 2px; 
+}
+
+
+.card-comment-box {
+    background-color: White;  
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px; 
+    /*border-color: red; 
+    border-style: solid; */
+}
+
+.card-comment {
+  /*  font-variant: small-caps; */
+    font-style: italic;
+    font-size: small;
+    padding-left: 4px;
 }
 
 .header {

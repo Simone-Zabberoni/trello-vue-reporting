@@ -33,6 +33,12 @@
 
                 <div class="card-body"> 
                     <vue-markdown>{{  card.desc  }}</vue-markdown>
+
+                    <div v-if="card.comments[0]" class="card-comment-box">
+                        <div v-for="comment in card['comments']" :key="comment.data.text" class="card-comment">
+                            {{ comment.date | formatDate }} - {{ comment.memberCreator.fullName }} &#124;  {{ comment.data.text  }}
+                        </div>
+                    </div>
                 </div>
             </div>
      
@@ -46,8 +52,15 @@
 </template>
 
 <script>
-
+import Vue from 'vue'
 import VueMarkdown from 'vue-markdown'
+import moment from 'moment'
+Vue.filter('formatDate', function(value) {
+    if (value) {
+      return moment(String(value)).format('DD/MM/YYYY hh:mm')
+    }
+  });
+
 
 export default {
   name: 'Boards',
