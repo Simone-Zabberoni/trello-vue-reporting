@@ -165,7 +165,6 @@ h3 {
 .board-selector {
     clear: none;
     float: left;
-    border-color: black; 
     border-style: solid;  
 }
 
