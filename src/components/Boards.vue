@@ -21,9 +21,16 @@
                 <p><toggle-button v-model="showComments"/> Comments</p>
             </div>
 
+            <div class="board-buttons">
+                <button v-on:click="createPDF">Export to PDF</button>  
+            </div>
+
         </div>
-        <hr>
-       
+        
+        <div>  
+            <hr>
+        </div>
+        
         <div id="boardContainer" class="board">
           <div v-for="list in $store.state.lists" :key="list.name" class="list">
             <h2>{{ list.name }}</h2>
@@ -68,6 +75,9 @@
 import Vue from 'vue'
 import VueMarkdown from 'vue-markdown'
 import moment from 'moment'
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf'
+
 
 Vue.filter('formatDate', function(value) {
     if (value) {
@@ -100,6 +110,36 @@ export default {
         console.log('Dispatching loadLists with id: '+ boardId)
         this.$store.dispatch('loadLists', boardId)   
     },
+
+    createPDF () {
+        var somename = this.$store.state.member.fullName;
+
+        html2canvas(document.getElementById("boardContainer"))
+        .then(function(canvas) {
+            var imgWidth = 210; 
+            var pageHeight = 295;  
+            var imgHeight = canvas.height * imgWidth / canvas.width;
+            var heightLeft = imgHeight;
+            var doc = new jsPDF('p', 'mm');
+            var position = 0;
+
+            var imgData = canvas.toDataURL('image/png');
+
+            doc.text(somename);
+            doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                doc.addPage();
+                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            doc.save( 'file.pdf');
+
+
+        });
+    } //createPDF
 
   }
 }

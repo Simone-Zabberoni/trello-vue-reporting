@@ -2,19 +2,17 @@
   <div id="app">
     <div class="header">
         <div class="header">
-            <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.4</h1>
+            <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.5</h1>
             <p>VueJS Version - Simone Zabberoni </p>
         </div>
     </div>
     
     <div class="status">
         <hr>
-        <Login />        
-        <button v-on:click="createPDF">Export to PDF</button>  
+        <Login />              
     </div>
         
     <Boards />
-        
 
   </div>
 </template>
@@ -23,10 +21,6 @@
 
 import Login from './components/Login.vue'
 import Boards from './components/Boards.vue'
-import jsPDF from 'jspdf'
-
-import html2canvas from 'html2canvas';
-
 
 export default {
   name: 'app',
@@ -34,62 +28,9 @@ export default {
     Login,
     Boards
   }, 
-  
-  methods: {
-    createPDF () {
-
-//window.html2canvas = html2canvas;
-
-/*  // funziona single page
-html2canvas(document.body).then(function(canvas) {
-    var imgData = canvas.toDataURL(
-                    'image/png');              
-                var doc = new jsPDF('p', 'mm');
-                doc.addImage(imgData, 'PNG', 10, 10);
-                doc.save('sample-file.pdf');
-});
-*/
-
-// provamo
-var somename = this.$store.state.member.fullName;
-
-html2canvas(document.getElementById("boardContainer"))
-.then(function(canvas) {
-    var imgWidth = 210; 
-    var pageHeight = 295;  
-    var imgHeight = canvas.height * imgWidth / canvas.width;
-    var heightLeft = imgHeight;
-    var doc = new jsPDF('p', 'mm');
-    var position = 0;
-
-    var imgData = canvas.toDataURL('image/png');
-
-    doc.text(somename);
-    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-    heightLeft -= pageHeight;
-
-    while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        doc.addPage();
-        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-    }
-    doc.save( 'file.pdf');
-
-
-});
-
-
-
-
-    } //createPDF
-}
-
-
 }
 
 </script>
-
 
 
 <style>
@@ -144,28 +85,28 @@ h3 {
 }
 
 .board {
-  
     clear: both; 
     float: none;
-    
 }
 
 .board-header {
-    text-align: left;
-    
+    text-align: left;  
+    border-style:  
 }
 
 .board-toggler {
     float: left;
-    clear: none;
-    border-color: blue; 
-    border-style: solid;  
+    clear: none;   
 }
 
 .board-selector {
     clear: none;
     float: left;
-    border-style: solid;  
+}
+
+.board-buttons {
+    clear: none;
+    float: left;
 }
 
 
@@ -195,7 +136,6 @@ h3 {
 .card-labels {
     float: left;
     clear: none;
-
 }
 
 .card-label-object {

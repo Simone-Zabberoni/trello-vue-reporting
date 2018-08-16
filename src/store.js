@@ -47,18 +47,14 @@ export default new Vuex.Store({
           state.listIndex = [];
         },
 
-
         setListData (state, list ) {
           console.log('Inside setListData...');
-          
-          
           var listIdx = state.lists.push( {'name': list.name, 
                             'id': list.id, 
                             'cards': [] } 
           );
         
           state.listIndex[list.id] = listIdx-1;
-          
         },
 
         addCardToList (state, card ) {
