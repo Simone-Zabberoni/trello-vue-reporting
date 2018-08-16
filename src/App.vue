@@ -5,18 +5,16 @@
             <h1> <img src="./assets/logo.png" style="width: 20px"> Trello reporting tool v0.0.4</h1>
             <p>VueJS Version - Simone Zabberoni </p>
         </div>
-
-      
     </div>
     
-    <div>
-        <div>
-            <Login />        
-        </div>
+    <div class="status">
+        <hr>
+        <Login />        
         <button v-on:click="createPDF">Export to PDF</button>  
-        <Boards />
-      
     </div>
+        
+    <Boards />
+        
 
   </div>
 </template>
@@ -101,7 +99,7 @@ html2canvas(document.getElementById("boardContainer"))
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 5px;
 }
 
 p {
@@ -146,12 +144,32 @@ h3 {
 }
 
 .board {
-   /* border-color: red; 
-    border-style: solid;  */
+  
     clear: both; 
     float: none;
     
 }
+
+.board-header {
+    text-align: left;
+    
+}
+
+.board-toggler {
+    float: left;
+    clear: none;
+    border-color: blue; 
+    border-style: solid;  
+}
+
+.board-selector {
+    clear: none;
+    float: left;
+    border-color: black; 
+    border-style: solid;  
+}
+
+
 
 .list {
     /*border-color: green; 
@@ -217,12 +235,9 @@ h3 {
     padding-top: 2px;
     padding-bottom: 2px;
     margin: 2px; 
-    /*border-color: red; 
-    border-style: solid; */
 }
 
 .card-comment {
-  /*  font-variant: small-caps; */
     font-style: italic;
     font-size: small;
     padding-left: 4px;
@@ -233,8 +248,12 @@ h3 {
     clear: none;
 }
 
+.status {
+    
+}
+
 .loginHeader {
-    padding-top: 10px;
+    padding-top: 5px;
     text-align: left;
 }
 
@@ -248,10 +267,10 @@ h3 {
     text-align: left;
 }
 
-
 .board-selector p {
     font-style: italic;
     font-size: small;
 }
+
 
 </style>

@@ -22,8 +22,8 @@ export default new Vuex.Store({
             'sky': '#00c2e0', 
             'pink': '#ff80ce', 
             'lime': '#51e898' 
-        }
-
+        },
+             
 
       },
       

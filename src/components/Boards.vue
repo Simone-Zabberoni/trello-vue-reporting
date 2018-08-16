@@ -2,15 +2,25 @@
   <div>
     
      <div v-if="$store.state.loggedIn">
-        <div class="board-selector">
-            <p>
-                Selected board:  
-                <select v-model="selected" v-on:change="loadLists(selected.value)">
-                <option v-for="option in $store.state.boards" :value="option" :key="option.id">
-                    {{ option.text }}
-                </option>
-                </select>
-            </p>  
+
+        <div class="board-header">
+             
+            <div class="board-selector">
+                <p>
+                    Selected board:  
+                    <select v-model="selected" v-on:change="loadLists(selected.value)">
+                    <option v-for="option in $store.state.boards" :value="option" :key="option.id">
+                        {{ option.text }}
+                    </option>
+                    </select>
+                </p>  
+            </div>
+
+            <div class="board-toggler">
+                <p><toggle-button v-model="showLabels"/> Labels</p>
+                <p><toggle-button v-model="showComments"/> Comments</p>
+            </div>
+
         </div>
         <hr>
        
@@ -24,7 +34,8 @@
                         <h3>{{ card.name }}</h3>
                     </div>
                     
-                    <div v-for="label in card['labels']" :key="label.name" class="card-labels card-header">
+                   
+                    <div v-if="showLabels" v-for="label in card['labels']" :key="label.name" class="card-labels card-header">
                         <div v-bind:style="{ 'background-color': $store.state.labelColor[label.color] } " class="card-label-object" >
                             {{ label.name  }}
                         </div>
@@ -34,9 +45,11 @@
                 <div class="card-body"> 
                     <vue-markdown>{{  card.desc  }}</vue-markdown>
 
-                    <div v-if="card.comments[0]" class="card-comment-box">
-                        <div v-for="comment in card['comments']" :key="comment.data.text" class="card-comment">
-                            {{ comment.date | formatDate }} - {{ comment.memberCreator.fullName }} &#124;  {{ comment.data.text  }}
+                    <div v-if="showComments">
+                        <div v-if="card.comments[0]" class="card-comment-box">
+                            <div v-for="comment in card['comments']" :key="comment.data.text" class="card-comment">
+                                {{ comment.date | formatDate }} - {{ comment.memberCreator.fullName }} &#124;  {{ comment.data.text  }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,12 +68,16 @@
 import Vue from 'vue'
 import VueMarkdown from 'vue-markdown'
 import moment from 'moment'
+
 Vue.filter('formatDate', function(value) {
     if (value) {
       return moment(String(value)).format('DD/MM/YYYY hh:mm')
     }
   });
 
+
+import ToggleButton from 'vue-js-toggle-button'
+Vue.use(ToggleButton)
 
 export default {
   name: 'Boards',
@@ -71,7 +88,9 @@ export default {
 
   data: function () {
     return {
-        selected: {}
+        selected: {},
+        showLabels: true,
+        showComments: true
     }
 
   }, 
@@ -82,11 +101,9 @@ export default {
         this.$store.dispatch('loadLists', boardId)   
     },
 
-  
-
-
   }
 }
+
 
 
 </script>
