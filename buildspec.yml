@@ -5,5 +5,5 @@ phases:
     commands:
       - npm install
       - npm run build
-      - aws s3 cp --recursive dist/ s3://trello-vue-report-test/
+      - aws s3 cp --recursive dist/ s3://trello-vue-report/
 
