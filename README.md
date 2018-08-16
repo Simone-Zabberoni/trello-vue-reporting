@@ -1,5 +1,17 @@
 # trello-vue-reporting
-Trello Reporting/Extractor tool - Vue JS
+
+Create reports from your Trello boards, ready for pdf or copy/paste.
+
+Toggle show/hide for labels, comments etc..
+
+
+
+## Live demo
+
+You can try the reporting tool here: http://www.facciocose.eu/trello
+
+
+
 
 ## Run
 
@@ -20,21 +32,14 @@ DONE  Compiled successfully in xx ms
 
 ```
 
-## Live demo
 
-[http://trello-vue-report.s3-website-eu-west-1.amazonaws.com/index.html](http://trello-vue-report.s3-website-eu-west-1.amazonaws.com/index.html)
-
-
-
-## Todos
-
-Lots: 
-
+## Todo list
+- view/hide for all card attributes
+- view/hide for lists
 - logoff implementation
 - check if already logged in
-- css styling
-- more card details (labels, due date, assignee....)
-- view/hide card attributes
+- better css styling
+- more card details (due date, assignee, checklists)
 
 
 
