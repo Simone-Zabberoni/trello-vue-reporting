@@ -1,0 +1,192 @@
+#app {
+  font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
+  margin-top: 5px;
+}
+
+.header {
+  background-color: aliceblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 20px;
+}
+
+.navbar {
+  margin: 5px;
+}
+
+.navbar p {
+  font-style: italic;
+  font-size: smaller;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+}
+
+.boardSelector {
+  border-radius: 36px;
+  display: inline-block;
+  overflow: hidden;
+  background-color: aliceblue;
+  border: 1.5px solid deepskyblue;
+  font-weight: bold;
+  padding: 2px;
+}
+
+.boardSelectorBox {
+  width: 140px;
+  height: 40px;
+  border: 4px;
+  outline: none;
+  background-color: aliceblue;
+  font-weight: bold;
+}
+
+div {
+  clear: both;
+  float: none;
+}
+
+h1 {
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+}
+
+h2 {
+  text-align: left;
+  text-decoration: underline;
+  font-style: italic;
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+}
+
+h3 {
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+}
+
+p {
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+}
+
+.board {
+  clear: both;
+  float: none;
+}
+
+.board-header {
+  text-align: left;
+}
+
+.board-buttons {
+  clear: none;
+  float: left;
+}
+
+.card {
+  background-color: white;
+  margin: 5px;
+  padding: 2px;
+}
+
+.card-header {
+  float: left;
+}
+
+.card-name {
+  float: left;
+  text-align: left;
+}
+
+.card-labels {
+  float: left;
+  clear: none;
+}
+
+.card-label-object {
+  color: white;
+  font-variant: small-caps;
+  font-style: italic;
+  font-size: small;
+
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+  border-radius: 5px;
+  float: left;
+  clear: none;
+}
+
+.card-body {
+  text-align: left;
+  clear: both;
+  float: none;
+
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+}
+
+.card-comment-box {
+  background-color: whitesmoke;
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 2px;
+}
+
+.card-comment {
+  font-style: italic;
+  font-size: small;
+  padding-left: 4px;
+}
+
+.loginHeader {
+  padding-top: 5px;
+  text-align: left;
+}
+
+.loginHeader p {
+  font-style: italic;
+  font-size: small;
+}
+
+.board-selector {
+  padding-top: 10px;
+  text-align: left;
+}
+
+.board-selector p {
+  font-style: italic;
+  font-size: small;
+}
