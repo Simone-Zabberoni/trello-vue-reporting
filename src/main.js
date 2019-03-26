@@ -4,6 +4,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+require('@/assets/style.css')
+
 new Vue({
   render: h => h(App),
   store

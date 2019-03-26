@@ -1,11 +1,7 @@
 <template>
-  <div class="loginHeader">
-    <p v-if="$store.state.loggedIn">
-      Logged in as:
-      <b>{{ $store.state.member.fullName }}</b>
-    </p>
-    <button v-else v-on:click="loginTrello">Login to Trello</button>
-  </div>
+  <button v-if="!$store.state.loggedIn" v-on:click="loginTrello">
+    Login to Trello
+  </button>
 </template>
 
 <script>
