@@ -1,12 +1,14 @@
 <template>
-  <button v-if="!$store.state.loggedIn" v-on:click="loginTrello">
-    Login to Trello
-  </button>
+  <button v-if="!loggedIn" v-on:click="loginTrello">Login to Trello</button>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'Login',
+
+  computed: mapState(['loggedIn']),
 
   methods: {
     authenticationSuccess: function() {
