@@ -1,24 +1,26 @@
 <template>
-  <div v-if="$store.state.loggedIn">
+  <div v-if="loggedIn">
     <div id="boardContainer" class="board">
-      <div v-for="list in $store.state.lists" :key="list.name" class="list">
+      <div v-for="list in lists" :key="list.name" class="list">
         <h2>{{ list.name }}</h2>
 
         <div v-for="card in list['cards']" :key="card.name" class="card">
           <div class="card-header">
             <div class="card-name card-header">
-              <h3>{{ card.name }}</h3>
+              <a v-bind:href="card.url" target="_blank">
+                <h3>{{ card.name }}</h3>
+              </a>
             </div>
 
             <div
-              v-if="$store.state.showLabels"
+              v-if="showLabels"
               v-for="label in card['labels']"
               :key="label.name"
               class="card-labels card-header"
             >
               <div
                 v-bind:style="{
-                  'background-color': $store.state.labelColor[label.color]
+                  'background-color': labelColor[label.color]
                 }"
                 class="card-label-object"
               >
@@ -31,7 +33,7 @@
             <vue-markdown>{{ card.desc }}</vue-markdown>
 
             <div
-              v-if="$store.state.showComments && card.comments[0]"
+              v-if="showComments && card.comments[0]"
               class="card-comment-box"
             >
               <div
@@ -58,6 +60,7 @@
 import Vue from 'vue'
 import VueMarkdown from 'vue-markdown'
 import moment from 'moment'
+import { mapState } from 'vuex'
 
 Vue.filter('formatDate', function(value) {
   if (value) {
@@ -70,7 +73,13 @@ Vue.use(ToggleButton)
 
 export default {
   name: 'Boards',
-
+  computed: mapState([
+    'loggedIn',
+    'lists',
+    'showLabels',
+    'labelColor',
+    'showComments'
+  ]),
   components: {
     VueMarkdown
   }

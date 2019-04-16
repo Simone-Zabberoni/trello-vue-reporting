@@ -1,9 +1,9 @@
 <template>
-  <div v-if="$store.state.loggedIn" class="navbar">
+  <div v-if="loggedIn" class="navbar">
     <ul>
       <li>
         <p>Logged in as</p>
-        <b>{{ $store.state.member.fullName }}</b>
+        <b>{{ member.fullName }}</b>
       </li>
       <li>
         <p>Board</p>
@@ -13,7 +13,7 @@
           class="boardSelector"
         >
           <option
-            v-for="option in $store.state.boards"
+            v-for="option in boards"
             :value="option"
             :key="option.id"
             class="boardSelectorBox"
@@ -24,7 +24,7 @@
       <li>
         <p>Labels</p>
         <toggle-button
-          v-model="$store.state.showLabels"
+          v-model="showLabels"
           color="lightskyblue"
           :labels="true"
         />
@@ -32,7 +32,7 @@
       <li>
         <p>Comments</p>
         <toggle-button
-          v-model="$store.state.showComments"
+          v-model="showComments"
           color="lightskyblue"
           :labels="true"
         />
@@ -42,8 +42,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'Navbar',
+
+  computed: mapState([
+    'loggedIn',
+    'boards',
+    'showLabels',
+    'member',
+    'showComments'
+  ]),
 
   methods: {
     loadLists: function(boardId) {
