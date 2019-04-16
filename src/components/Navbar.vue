@@ -26,7 +26,7 @@
         <toggle-button
           v-model="$store.state.showLabels"
           color="lightskyblue"
-          labels="true"
+          :labels="true"
         />
       </li>
       <li>
@@ -34,7 +34,7 @@
         <toggle-button
           v-model="$store.state.showComments"
           color="lightskyblue"
-          labels="true"
+          :labels="true"
         />
       </li>
     </ul>
