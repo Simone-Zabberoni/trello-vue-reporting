@@ -24,7 +24,7 @@
       <li>
         <p>Labels</p>
         <toggle-button
-          v-model="showLabels"
+          v-model="$store.state.showLabels"
           color="lightskyblue"
           :labels="true"
         />
@@ -32,7 +32,7 @@
       <li>
         <p>Comments</p>
         <toggle-button
-          v-model="showComments"
+          v-model="$store.state.showComments"
           color="lightskyblue"
           :labels="true"
         />
@@ -47,13 +47,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'Navbar',
 
-  computed: mapState([
-    'loggedIn',
-    'boards',
-    'showLabels',
-    'member',
-    'showComments'
-  ]),
+  computed: mapState(['loggedIn', 'boards', 'member']),
 
   methods: {
     loadLists: function(boardId) {
