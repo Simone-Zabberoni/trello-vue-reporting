@@ -195,11 +195,8 @@ p {
 }
 
 .listbox {
-  background-color: red;
-  padding-right: 1px;
-  padding-left: 1px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin: 1px;
+  padding: 2px;
+  margin: 2px;
   float: right;
+  text-align: left;
 }

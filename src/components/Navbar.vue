@@ -40,12 +40,13 @@
       <li>
         <p>Lists</p>
         <div v-if="loggedIn" class="listbox">
-          <div
-            v-for="(list, i) in $store.state.lists"
-            :key="list.name"
-            v-on:click="toggleListVisibility($event, i)"
-          >
-            <p>{{ list.name }}</p>
+          <div v-for="(list, i) in $store.state.lists" :key="list.name">
+            <toggle-button
+              v-model="$store.state.lists[i].visible"
+              color="lightskyblue"
+              :labels="true"
+            />
+            {{ list.name }}
           </div>
         </div>
       </li>
@@ -65,11 +66,6 @@ export default {
     loadLists: function(boardId) {
       console.log('Dispatching loadLists with id: ' + boardId)
       this.$store.dispatch('loadLists', boardId)
-    },
-    toggleListVisibility: function(ev, i) {
-      //console.log(ev) // this is the event
-      console.log(i) // i is index of v-for
-      this.$store.commit('toggleListVisibility', i)
     }
   },
   data: function() {
