@@ -52,10 +52,15 @@ export default new Vuex.Store({
       var listIdx = state.lists.push({
         name: list.name,
         id: list.id,
+        visible: true,
         cards: []
       })
 
       state.listIndex[list.id] = listIdx - 1
+    },
+
+    toggleListVisibility(state, listId) {
+      state.lists[listId]['visible'] = !state.lists[listId]['visible']
     },
 
     addCardToList(state, card) {

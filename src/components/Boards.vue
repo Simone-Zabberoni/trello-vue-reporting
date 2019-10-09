@@ -1,7 +1,7 @@
 <template>
   <div v-if="loggedIn">
     <div id="boardContainer" class="board">
-      <div v-for="list in lists" :key="list.name" class="list">
+      <div v-for="list in visibleLists" :key="list.name" class="list">
         <h2>{{ list.name }}</h2>
 
         <div v-for="card in list['cards']" :key="card.name" class="card">
@@ -73,13 +73,23 @@ Vue.use(ToggleButton)
 
 export default {
   name: 'Boards',
-  computed: mapState([
-    'loggedIn',
-    'lists',
-    'showLabels',
-    'labelColor',
-    'showComments'
-  ]),
+  // mapstate with spread operator!
+
+  computed: {
+    visibleLists: function() {
+      return this.lists.filter(function(l) {
+        console.log(l.visible)
+        return l.visible
+      })
+    },
+    ...mapState([
+      'loggedIn',
+      'lists',
+      'showLabels',
+      'labelColor',
+      'showComments'
+    ])
+  },
   components: {
     VueMarkdown
   }
