@@ -11,20 +11,20 @@
                 <h3>{{ card.name }}</h3>
               </a>
             </div>
-
-            <div
-              v-if="showLabels"
-              v-for="label in card['labels']"
-              :key="label.name"
-              class="card-labels card-header"
-            >
+            <div v-if="showLabels">
               <div
-                v-bind:style="{
-                  'background-color': labelColor[label.color]
-                }"
-                class="card-label-object"
+                v-for="label in card['labels']"
+                :key="label.name"
+                class="card-labels card-header"
               >
-                {{ label.name }}
+                <div
+                  v-bind:style="{
+                    'background-color': labelColor[label.color]
+                  }"
+                  class="card-label-object"
+                >
+                  {{ label.name }}
+                </div>
               </div>
             </div>
           </div>
