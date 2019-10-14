@@ -1,14 +1,16 @@
-# trello-vue-reporting
+# trello-vue-reporting - Simple trello reporting tool
 
-Create reports from your Trello boards, ready for pdf or copy/paste.
+Visualize your Trello cards in a more readable (and copy/pasteable) format!
+![trello-report-TrelloView.png](https://raw.githubusercontent.com/Simone-Zabberoni/trello-vue-reporting/master/screenshots/trello-report-TrelloView.png)
 
-Toggle show/hide for labels, comments etc..
-
+Use the toggle switches to show or hide labels, comments and entire boards (more attributes in the future!)
+![trello-report-selectors.png](https://raw.githubusercontent.com/Simone-Zabberoni/trello-vue-reporting/master/screenshots/trello-report-selectors.png)
 
 ## Live demo
 
 You can try the reporting tool here: http://trello-vue-report.s3-website-eu-west-1.amazonaws.com/ OR http://www.facciocose.eu/trello
 
+**Important**: The utility is client side only, all the data flows from your browser to Trello's servers: it doesn't capture/intercept/analyze your data, the only tracking in place is Google Analytics
 
 ## Run
 
@@ -55,18 +57,11 @@ node                         8.6-alpine          67.2MB
 
 The 236MB image is the node image with full node_modules installation, while the final nginx image is only 11.1MB.
 
-
-
 ## Todo list
+
 - view/hide for all card attributes
 - view/hide for lists
 - logoff implementation
 - check if already logged in
 - better css styling
 - more card details (due date, assignee, checklists)
-
-
-
-
-
-
