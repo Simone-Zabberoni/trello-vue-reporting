@@ -1,56 +1,80 @@
 <template>
   <div v-if="loggedIn" class="navbar">
-    <ul>
-      <li>
-        <p>Logged in as</p>
+    <div class="bottomLine">
+      <p class="center">
+        Logged in as:
         <b>{{ member.fullName }}</b>
-      </li>
-      <li>
-        <p>Board</p>
-        <select
-          v-model="selected"
-          v-on:change="loadLists(selected.value)"
-          class="boardSelector"
+      </p>
+    </div>
+
+    <div class="bottomLine">
+      <p class="center">Current Board</p>
+      <select
+        v-model="selected"
+        v-on:change="loadLists(selected.value)"
+        class="boardSelector"
+      >
+        <option
+          v-for="option in boards"
+          :value="option"
+          :key="option.id"
+          class="boardSelectorBox"
+          >{{ option.text }}</option
         >
-          <option
-            v-for="option in boards"
-            :value="option"
-            :key="option.id"
-            class="boardSelectorBox"
-            >{{ option.text }}</option
-          >
-        </select>
-      </li>
-      <li>
-        <p>Labels</p>
-        <toggle-button
-          v-model="$store.state.showLabels"
-          color="lightskyblue"
-          :labels="true"
-        />
-      </li>
-      <li>
-        <p>Comments</p>
-        <toggle-button
-          v-model="$store.state.showComments"
-          color="lightskyblue"
-          :labels="true"
-        />
-      </li>
-      <li>
-        <p>Lists</p>
-        <div v-if="loggedIn" class="listbox">
-          <div v-for="(list, i) in $store.state.lists" :key="list.name">
-            <toggle-button
-              v-model="$store.state.lists[i].visible"
-              color="lightskyblue"
-              :labels="true"
-            />
-            {{ list.name }}
+      </select>
+    </div>
+
+    <div class="toggleSelectors bottomLine">
+      <div class="flexCenter">
+        <div>
+          <toggle-button
+            class="toggleButton"
+            v-model="$store.state.showLabels"
+            :labels="true"
+            color="darkgreen"
+          />
+        </div>
+        <div>
+          <p>Show Labels</p>
+        </div>
+      </div>
+
+      <div class="flexCenter">
+        <div>
+          <toggle-button
+            class="toggleButton"
+            v-model="$store.state.showComments"
+            :labels="true"
+            color="darkgreen"
+          />
+        </div>
+        <div>
+          <p>Show Comments</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottomLine">
+      <p class="center">Lists</p>
+      <div v-if="loggedIn">
+        <div
+          v-for="(list, i) in $store.state.lists"
+          :key="list.name"
+          class="flexCenter"
+        >
+          <toggle-button
+            class="toggleButton"
+            v-model="$store.state.lists[i].visible"
+            :labels="true"
+            color="darkgreen"
+          />
+          <div>
+            <p>{{ list.name }}</p>
+            <p></p>
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 

@@ -1,30 +1,44 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1>
-        <img src="./assets/logo.png" style="width: 20px" /> Zab's Trello
-        reporting tool - v0.0.7
-      </h1>
+      <div class="logoTitleWrapper">
+        <img id="logo" src="./assets/logo.png" style="height: 20px" />
 
-      <Login />
-      <Navbar />
+        <div id="appTitle">
+          <h1>Trello reporting tool</h1>
+        </div>
+      </div>
+      <div id="version">
+        Simone Zabberoni -
+        <a
+          class="zabLink"
+          href="https://github.com/Simone-Zabberoni"
+          target="_blank"
+          >https://github.com/Simone-Zabberoni</a
+        >
+        - v. {{ version }}
+      </div>
     </div>
 
-    <Boards />
+    <div id="headSpacer"></div>
+
+    <Login />
+
+    <MainContainer />
   </div>
 </template>
 
 <script>
 import Login from './components/Login.vue'
-import Boards from './components/Boards.vue'
-import Navbar from './components/Navbar.vue'
+import MainContainer from './components/MainContainer.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'app',
+  computed: mapState(['loggedIn', 'version']),
   components: {
     Login,
-    Boards,
-    Navbar
+    MainContainer
   }
 }
 </script>

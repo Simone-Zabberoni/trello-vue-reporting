@@ -5,7 +5,7 @@
         <h2>{{ list.name }}</h2>
 
         <div v-for="card in list['cards']" :key="card.name" class="card">
-          <div class="card-header">
+          <div class="card-header flexCenter">
             <div class="card-name card-header">
               <a v-bind:href="card.url" target="_blank">
                 <h3>{{ card.name }}</h3>
@@ -47,7 +47,6 @@
               </div>
             </div>
           </div>
-          <br />
         </div>
 
         <hr />
