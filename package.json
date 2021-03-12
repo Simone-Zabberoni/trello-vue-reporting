@@ -12,7 +12,7 @@
     "babel-runtime": "^6.26.0",
     "core-js": "^2.6.5",
     "html2canvas": "^1.0.0-rc.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "moment": "^2.24.0",
     "serialize-javascript": "^3.1.0",
     "vue": "^2.6.10",
